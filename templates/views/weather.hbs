@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>headtag}}
+</head>
+
+<body>
+
+    {{>navbar}}
+    <!-- Home Section-->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="main_content w-50 mx-auto ">
+                    <div class="col-auto">
+                        <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control id=" inlineFormInputGroup"
+                                placeholder="Enter your city name" id="cityName"></input>
+                            <div class="input-group-prepend">
+                                <button class="btn btn-info" id="submitBtn">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card text-white bg-secondary mb-3 my-5 text-center offset-1 shadow"
+                        style="max-width: 20rem;">
+                        <div class="card-header">
+                            <p id="day" class="float-left">Monday</p>
+                            <p id="date" class="float-right">26 OCT</p>
+                        </div>
+                        <div class="card-body data-layer" id="data_hide">
+                            <h1 id="city_name">City Name</h1>
+                            <div>
+                                <h2 id="temp" class="mt-3 "><span>0</span><sup>o</sup>C
+                                </h2>
+                                <p id="temp_status" class=""><i class="fa fa-cloud ml-2"
+                                        style="color:#BDD0E7; font-size: 40px;"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <script src="js/main.js"></script>
+        <script>
+            const getCurrentDay = () => {
+                var weekday = new Array(7);
+                weekday[0] = "Sunday";
+                weekday[1] = "Monday";
+                weekday[2] = "Tuesday";
+                weekday[3] = "Wednesday";
+                weekday[4] = "Thursday";
+                weekday[5] = "Friday";
+                weekday[6] = "Saturday  ";
+                let currentTime = new Date();
+                let days = weekday[currentTime.getDay()];
+                let day = document.getElementById("day");
+                day.innerText = days;
+
+            };
+            getCurrentDay()
+
+            const getCurrentTime = () => {
+                var months = [
+                    "Jan",
+                    "Feb",
+                    "march",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "Aug",
+                    "Sep",
+                    "Oct",
+                    "Nov",
+                    "Dec",
+                ];
+                var now = new Date();
+                var month = months[now.getMonth()];
+                var dates = now.getDate();
+                let date = document.getElementById('date');
+                date.innerText = ` ${dates} ${month} `;
+
+            }
+            getCurrentTime();
+
+        </script>
+        {{>liabrary}}
+</body>
+
+</html>
